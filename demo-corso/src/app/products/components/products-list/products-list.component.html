@@ -1,0 +1,42 @@
+<div *ngIf="products && products.length > 0; else mioElseBlock">
+
+<p>Ci sono {{products.length}} prodotti</p>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Address</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let product of products">
+      <td>{{product.Code}}</td>
+      <td>{{product.Name | myFirst: '????' | uppercase  }}</td>
+      <td>{{product.Price | currency: 'EUR'}}</td>
+      <td>{{product.ReleaseDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{product.Address | address}}</td>
+      <td>
+        <img [src]="product.Image"/>
+      </td>
+      <td>
+        <button (click)="showDetails(product)" class="btn btn-success">Show Details</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+</div>
+
+
+<ng-template #mioElseBlock>
+  <h3>Non ci sono prodotti disponibili </h3>
+</ng-template>
