@@ -1,1 +1,24 @@
 <p>welcome works!</p>
+
+<!-- <input #myInput  type="text" (keyup)="onKey(myInput.value)"> -->
+
+
+<!-- <input type="text" [formControl]="myControl">
+
+<button (click)="testInput()" >Test</button>
+
+{{myControl.value}}
+{{valore | async}} -->
+
+<form [formGroup]="userForm" (ngSubmit)="mySubmit()">
+
+  <input formControlName="firstName">
+  <div *ngIf="myfirstName.invalid && myfirstName.errors && myfirstName.errors.required" class="alert alert-danger">Nome obbligatorio</div>
+  <div *ngIf="myfirstName.invalid && myfirstName.errors && myfirstName.errors.minlength" class="alert alert-danger">Lunghezza minima 4</div>
+  <div *ngIf="myfirstName.invalid && myfirstName.errors && myfirstName.errors.myValidator" class="alert alert-danger">Mia validazione</div>
+
+  <input formControlName="lastName">
+
+  <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">OK</button>
+
+</form>

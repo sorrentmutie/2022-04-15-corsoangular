@@ -13,6 +13,10 @@ import { WelcomeComponent } from './shared/components/welcome/welcome.component'
 import { ProductsPageComponent } from './products/components/products-page/products-page.component';
 import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
 import { MyFirstInterceptor } from './shared/interceptors/my-first.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeroFormComponent } from './heroes/hero-form/hero-form.component';
+import { FirstComponent } from './subjects/first/first.component';
+import { SecondComponent } from './subjects/second/second.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,17 @@ import { MyFirstInterceptor } from './shared/interceptors/my-first.interceptor';
     NotFoundComponent,
     WelcomeComponent,
     ProductsPageComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    HeroFormComponent,
+    FirstComponent,
+    SecondComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: MyFirstInterceptor, multi: true}
